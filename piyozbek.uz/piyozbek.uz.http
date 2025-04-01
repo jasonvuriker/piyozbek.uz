@@ -1,0 +1,6 @@
+@piyozbek.uz_HostAddress = http://localhost:5143
+
+GET {{piyozbek.uz_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
