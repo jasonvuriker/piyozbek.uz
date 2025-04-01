@@ -16,29 +16,11 @@ public partial class CarMapper
     public partial void UpdateCarDto(Car car, CreateCarDto dto);
 }
 
+[Mapper]
+public partial class DriverMapper
+{
+    [MapProperty([nameof(Driver.Firstname), nameof(Driver.Lastname)], nameof(Driver.Lastname))]
+    public partial DriverDto ToDto(Driver driver);
 
-//public class Automapper
-//{
-//    public TDestination Map<TSource, TDestination>(TSource source)
-//    {
-//        var profile = Assembly.GetAssembly(typeof(Profile));
-
-//        var specifications = profile.GetSpecification();
-
-//        var sourceType = typeof(TSource);
-//        var destinationType = typeof(TDestination);
-
-//        var destinationInstance = Activator.CreateInstance(destinationType);
-
-//        var sourceProperties = sourceType.GetProperties();
-
-//        foreach (var sourceProperty in sourceProperties)
-//        {
-//            var sourcePropertyName = sourceProperty.Name;
-
-//            var destinationProperty = destinationType.GetProperty(sourcePropertyName);
-
-//            destinationProperty.SetValue(destinationInstance, sourceProperty.GetValue(source));
-//        }
-//    }
-//}
+    public partial Driver ToEntity(DriverDto dto);
+}
